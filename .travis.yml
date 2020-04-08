@@ -4,5 +4,6 @@ branches:
   only:
     - master
 
-before_install: npm ci
+before_script: npm ci
+before_install: rm -R node_modules
 script: node server.js
