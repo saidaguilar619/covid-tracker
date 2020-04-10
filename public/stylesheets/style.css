@@ -1,4 +1,19 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
 }
+
+body{
+
+}
+
+nav{
+    background-color: red;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+  }
+
