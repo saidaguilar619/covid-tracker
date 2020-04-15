@@ -10,11 +10,16 @@ $(document).ready(function() {
   var posts = [];
 
   getPosts();
-
+  getData();
   function getPosts() {
     $.get("/api/post", function(data) {
       posts = data;
       initializeRows();
+    });
+  }
+  function getData() {
+    $.get("/api/coronadata", function(data) {
+     console.log(data);
     });
   }
 
@@ -49,9 +54,9 @@ $(document).ready(function() {
     event.preventDefault();
     var post = {
       name: $name.val().trim(),
-      location: $location.val().trim(),
-      services: $services.val().trim(),
-      email: $email.val().trim()
+      location: $location.val(),
+      services: $services.val(),
+      email: $email.val()
     };
 
     $.post("/api/post", post, getPosts);

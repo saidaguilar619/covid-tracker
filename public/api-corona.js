@@ -1,6 +1,5 @@
 
-// const axios = require("axios");
-// var $numDeaths = $(".numDeaths");
+
 
 // getAPI();
 // function getAPI() {
