@@ -25,13 +25,20 @@ module.exports = function(app) {
   
   );
   app.get("/api/coronadata", function (req, res) {
-    axios
-      .get("https://corona-virus-world-and-india-data.p.rapidapi.com/api?x-rapidapi-key=f112b9267amshffba7ba252f8ed4p166504jsnecb0af3ef299")
-      .then(function (data) {
-        console.log(data.data);
-        res.json(data.data);
-      }).catch(function(err){
-        console.log(err);
-      });
+    axios({
+      "method":"GET",
+      "url":"https://corona-virus-world-and-india-data.p.rapidapi.com/api",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"corona-virus-world-and-india-data.p.rapidapi.com",
+      "x-rapidapi-key":"78e78b1e9fmsh6fd1cf2f24ca407p189571jsn95e2b6eea953"
+      }
+      })
+      .then((response)=>{
+        console.log(response.data.countries_stat[0])
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
   });
 };
