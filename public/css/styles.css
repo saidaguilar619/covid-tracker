@@ -13,28 +13,27 @@
   font-size: 19px; 
   text-align: center; 
   border-top: 1px solid black
-  
 }
 
 body{
   background-image: url("https://www.photos-public-domain.com/wp-content/uploads/2012/05/ivory-off-white-paper-texture.jpg");
 }
 .display-4{
-  color:#4aaaa5;
+  color:#000000;
 }
 hr{
   border-top: 3px solid #dddddd;
 }
 p{
   font-family: 'Caudex' ;
-  font-size: 24px;
+  font-size: 28px;
 }
 #selfie{
   float: left;
-  width :38rem;
+  width : 98%;
   height:28rem;
   margin-right: 40px; 
-  border:  #4aaaa5 solid 3px;
+ 
 }
 h1, h2, .form-group, li, .name{
   font-family: 'Merienda One';
@@ -44,17 +43,19 @@ h1, h2, .form-group, li, .name{
 .jumbotron{  
   background-color: white;
   border: solid 4px black;
-  margin: 10rem 6rem 0rem 6rem;
+  margin: 10rem 6rem 3rem 6rem;
   padding: 5rem;
   justify-content: center;
 }
 .jumboStay{  
-  padding-bottom: 20rem;
+  padding-bottom: 10rem;
   justify-content: center;
+  line-height: 75px;
+  margin-bottom: 5rem;
 }
-.jt1{
+/* .jt1{
   margin: 10rem 10rem;
-}
+} */
 .nav1{
   background: rgb(216, 216, 216);
   border-bottom: black 4px solid;
@@ -96,7 +97,7 @@ ul li:last-child{
   color: rgb(90, 80, 80);
   padding: 2rem;
   float: left;
-  background-color: #4aaaa5;
+  background-color: #e7e7d3;
   border-left: 2px solid black;
   border-right: 2px solid black;
 }

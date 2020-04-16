@@ -4,41 +4,37 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       validate: {
         len: [1]
-      },
-      allowNull: false,
+      }   
     },
     email: {
       validate: {
         len: [1]
       },
-      allowNull: false,
       type: DataTypes.STRING
     },
     services: {
       validate: {
         len: [1]},
-      allowNull: false,
       type: DataTypes.TEXT
     },
     location: {
       validate: {
         len: [1]},
-      allowNull: false,
       type: DataTypes.STRING
     },
-    phone: {
-      validate: {
-        len: [1]},
-      allowNull: false,
-      type: DataTypes.INTEGER
-    },
+    // ,
+    // phone: {
+    //   validate: {
+    //     len: [1]},
+    //   allowNull: false,
+    //   type: DataTypes.INTEGER
+    // },
     id: {
+      autoIncrement: true,
       primaryKey: true,
-      validate: {
-        len: [1]},
-      allowNull: false,
       type: DataTypes.INTEGER
     }
   });
+  // Post.sync();
   return Post;
 };
