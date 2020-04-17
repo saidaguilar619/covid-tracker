@@ -3,6 +3,8 @@ $(document).ready(function() {
   var $name = $("#name");
   var $email = $("#email");
   var $location = $("#location");
+  const $country = $(".country")
+
 
   var $postscontainer = $(".newposts");
   $(document).on("click", "#submit-form", insertPost);
@@ -19,7 +21,7 @@ $(document).ready(function() {
   }
   function getData() {
     $.get("/api/coronadata", function(data) {
-     console.log(data);
+      $country.val(data.data.countries_stat[0]);
     });
   }
 
