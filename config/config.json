@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "c7wgu94rw5blwxq3",
-    "database": "kh0jkz0j8k239wcx",
-    "host": "e764qqay0xlsc4cz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "password": "fav3lapresa",
+    "database": "volunteer_db",
+    "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {

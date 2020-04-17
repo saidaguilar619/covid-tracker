@@ -1,6 +1,10 @@
 var db = require("../models");
 const axios = require("axios");
 
+const postnewdata = (data) => {
+  
+};
+
 module.exports = function(app) {
   app.get("/api/post", function(req, res) {
     db.Post.findAll({}).then(function(dbPost) {
@@ -19,8 +23,6 @@ module.exports = function(app) {
     }).then(function(dbPost) {
       res.json(dbPost);
     });
-
-    
   }
   
   );
@@ -35,7 +37,8 @@ module.exports = function(app) {
       }
       })
       .then((response)=>{
-        console.log(response.data.countries_stat[0])
+        console.log(response.data.countries_stat[0].deaths);
+        res.json(response.data);
       })
       .catch((error)=>{
         console.log(error)

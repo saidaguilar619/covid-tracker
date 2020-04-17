@@ -6,23 +6,23 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }   
     },
-    email: {
-      validate: {
-        len: [1]
-      },
-      type: DataTypes.STRING
-    },
-    services: {
-      validate: {
-        len: [1]},
-      type: DataTypes.TEXT
-    },
-    location: {
-      validate: {
-        len: [1]},
-      type: DataTypes.STRING
-    },
-    // ,
+    // email: {
+    //   validate: {
+    //     len: [1]
+    //   },
+    //   type: DataTypes.STRING
+    // },
+    // services: {
+    //   validate: {
+    //     len: [1]},
+    //   type: DataTypes.TEXT
+    // },
+    // location: {
+    //   validate: {
+    //     len: [1]},
+    //   type: DataTypes.STRING
+    // },
+    
     // phone: {
     //   validate: {
     //     len: [1]},
@@ -35,6 +35,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     }
   });
-  // Post.sync();
+  Post.sync();
   return Post;
 };
