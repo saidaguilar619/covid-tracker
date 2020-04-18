@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <title>Latest Data</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Aclonica|Boogaloo|Caudex|Chewy|Lateef|Merienda+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica|Boogaloo|Caudex|Chewy|Lateef|Merienda+One&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="container container0">
+    <div class="container">
         <div class="row nav1 fixed-top">
-            <div class="col-lg-5">
+            <div class="col-md-5">
                 <div class="namesid">
                     <h1 id="title"><a class="nav-link" href="main.html">Covid Tracker</a></h1>
                 </div>
             </div>
-            <div class="col-sm-7">
+            <div class="col-md-7">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="data.html">Latest Data</a>
@@ -35,48 +36,46 @@
             </div>
         </div>
     </div>
-    <div class="container container1">
         <div class="row">
-                <div class="jumbotron0 jumbotron">
+            <div class="col-md-6">
+                <div class="jumbotron">
                     <h1 class="display-4">Latest Data</h1>
+                    <img src="https://stisidore.church/wp-content/uploads/2016/10/BytheNumbers.jpg" id="selfie" alt="">
+
                     <hr class="my-4">
-                    <img src="https://stisidore.church/wp-content/uploads/2016/10/BytheNumbers.jpg"
-                        id="selfie" alt="">   
-                        <h1 class="display-4">Select Country</h1>
 
-                <div class="dropdown open">
-                    <button class="btn btn-secondary dropdown-toggle"
-                            type="button" id="dropdownMenu3" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                      United States of America
-                    </button>
-                    <div class="dropdown-menu">
-                      <h6 class="dropdown-header">Dropdown header</h6>
-                      <a class="dropdown-item" href="#!">Action</a>
-                      <a class="dropdown-item" href="#!">Another action</a>
-                    </div>
-                  </div>
-                  <hr>  
+                    <h1 class="display-4 ">Country:</h1>
+                    <h1 class="display-4 country"></h1>
 
-                <h1 class="display-4 country">United States of America</h1>
-                <hr>     
-                <h2 class="display-4 confirmed">Confirmed Cases: 610,206</h2>
-                <h2 class="display-4 deaths"></h2>
-                <h2 class="display-4 recovered">Recovered: 38,520</h2>
-                <hr>                             
-                    </div>
+                    <hr>
+
+                    <h1 class="display-4 ">Confirmed Cases: </h1>
+                    <h2 class="display-4 confirmed"></h2>
+
+                    <hr>
+
+                    <h1 class="display-4 ">Deaths: </h1>
+                    <h2 class="display-4 deaths"></h2>
+
+                    <hr>
+
+                    <h1 class="display-4 ">Recoverd: </h1>
+                    <h2 class="display-4 recovered"></h2>
+
+                    <hr>
                 </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="jumbotron jumbotron1">
+                    <h1 class="display-4">Select A Country For Latest Data: </h1>
+                </div>
+
+            </div>
         </div>
-        <div class="container container2">
-           
-            </div>
-        <div class="container container3">
-            
-            </div>
-      
-        <!-- footer-->
+    <!-- footer-->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="footer ">
                     <p>Said Aguilar, Greg Schuman, Jason Riley Copyright &#x24B8</p>
                 </div>
@@ -84,19 +83,12 @@
         </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <!-- <script>
-    const axios = require("axios");
-    var $numDeaths = $(".numDeaths");
-    
-    getAPI();
-    function getAPI() {
-        axios
-            .get("https://corona-virus-world-and-india-data.p.rapidapi.com/api?x-rapidapi-key=f112b9267amshffba7ba252f8ed4p166504jsnecb0af3ef299")
-            .then(function (res) {
-                console.log(res.data);
-                $numDeaths.val("res.data"); 
-            });
-      }</script> -->
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+<script src="js/view.js"></script>
+
 </html>

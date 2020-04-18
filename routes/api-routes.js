@@ -1,20 +1,14 @@
 var db = require("../models");
 const axios = require("axios");
 
-const postnewdata = (data) => {
-  
-};
-
 module.exports = function(app) {
   app.get("/api/post", function(req, res) {
     db.Post.findAll({}).then(function(dbPost) {
       res.json(dbPost);
-      console.log(dbPost);
     });
   });
 
   app.post("/api/post", function(req, res) {
-    console.log(req.body.name);
     db.Post.create({
       name: req.body.name,
       email: req.body.email,
@@ -26,6 +20,30 @@ module.exports = function(app) {
   }
   
   );
+
+  app.delete("/api/post/:id", function(req, res) {
+    console.log(req.params.id);
+    db.Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  app.put("/api/post", function(req, res) {
+    db.Post.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
   app.get("/api/coronadata", function (req, res) {
     axios({
       "method":"GET",
@@ -37,11 +55,22 @@ module.exports = function(app) {
       }
       })
       .then((response)=>{
-        console.log(response.data.countries_stat[0].deaths);
         res.json(response.data);
       })
       .catch((error)=>{
-        console.log(error)
+        // console.log(error)
+      })
+  });
+  app.get("/api/getflags", function (req, res) {
+    axios({
+      "method":"GET",
+      "url":"https://restcountries.eu/rest/v2"
+      })
+      .then((response)=>{
+        res.json(response.data);
+      })
+      .catch((error)=>{
+        console.log(error);
       })
   });
 };
