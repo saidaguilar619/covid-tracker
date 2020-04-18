@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div class="container container0">
+    <div class="container">
         <div class="row nav1 fixed-top">
-            <div class="col-lg-5">
+            <div class="col-md-5">
                 <div class="namesid">
                     <h1 id="title"><a class="nav-link" href="main.html">Covid Tracker</a></h1>
                 </div>
             </div>
-            <div class="col-sm-7">
+            <div class="col-md-7">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="data.html">Latest Data</a>
@@ -37,9 +37,10 @@
             </div>
         </div>
     </div>
-    <div class="container container1">
-                <div class="jumbotron0 jumbotron">
-                    <h1 class="display-4">Ways To Help</h1>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="jumbotron">
+                    <h1 class="display-4">Ways To Help:</h1>
                     <hr class="my-4">
                     <img src="https://p16cdn4static.sharpschool.com/UserFiles/Servers/Server_79234/Image/Departments/Community%20Services/Volunteer/Asset%201@2x-50.jpg"
                         id="selfie" alt="photo of said aguilar">
@@ -91,46 +92,60 @@
                                 Foundation</a></div>
                     </div>
                 </div>
-    </div>
-    <div class="container container2">
-        <div class="jumbotron jt1">
-            <h1 class="display-4">Volunteer Board</h1>
-            <hr>
-            <div class="newposts"></div>
-           
-        </div>
-    </div>
-    <div class="container container3">
-            <div class="jumbotron jt1">
-                <h1 class="display-4">Contact</h1>
-                <hr class="my-4">
+            </div>
+            <div class="col-md-3">
+                <div class="jumbotron">
+                    <h1 class="display-4">Volunteer Board:</h1>             
+                    <div class="newposts"></div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="jumbotron">
+                    <h1 class="display-4">Contact:</h1>
+                    <hr class="my-4">
                     <div class="container">
-                        <h1>Form To Offer Services</h1>
+                        <h1>Form To Offer Services:</h1>
                         <form class="volunteerForm">
-                            <label for="name"><h3>Name:  </h3></label><input type="text" id="name" class="name" name="name">
+                            <label for="name">
+                                <h3>Name: </h3>
+                            </label><input type="text" id="name" class="name" name="name">
                             <br>
-                            <label for="email"><h3>Email Address:  </h3></label><input type="text" id="email">
+                            <label for="email">
+                                <h3>Email Address: </h3>
+                            </label><input type="text" id="email">
                             <br>
-                            <label for="location"><h3>Location:  </h3></label><input type="text" id="location">
+                            <label for="location">
+                                <h3>Location: </h3>
+                            </label><input type="text" id="location">
                             <br>
-                            <label for="servicesArea"><h3>What kind of services do you offer?:   </h3></label>
+                            <label for="phone">
+                                <h3>Phone Number: </h3>
+                            </label><input type="text" id="phone">
                             <br>
-                            <textarea id="servicesArea" rows=3 cols="50"></textarea>
+                                <h3>What kind of services do you offer?: </h3>              
+                            <br>
+                            <select class="custom-select">
+                                <option selected>Select Service</option>
+                                <option value="Labor">Labor</option>
+                                <option value="Education">Education</option>
+                                <option value="Marketing">Marketing</option>
+                              </select>
                             <button type="submit" id="submit-form">Submit</button>
                         </form>
                     </div>
+                </div>
             </div>
         </div>
 
-    <!-- footer-->
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="footer ">
-                <p>Said Aguilar, Greg Schuman, Jason Riley Copyright &#x24B8</p>
+        <!-- footer-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer ">
+                    <p>Said Aguilar, Greg Schuman, Jason Riley Copyright &#x24B8</p>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"

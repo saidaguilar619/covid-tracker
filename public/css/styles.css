@@ -15,6 +15,15 @@
   border-top: 1px solid black
 }
 
+.container-list{
+  border: 2px solid black;
+}
+.btn1{
+  margin:1rem 3rem;
+}
+.country-btn{
+  margin:2px;
+}
 body{
   background-image: url("https://www.photos-public-domain.com/wp-content/uploads/2012/05/ivory-off-white-paper-texture.jpg");
 }
@@ -31,7 +40,7 @@ p{
 #selfie{
   float: left;
   width : 98%;
-  height:28rem;
+  height:25rem;
   margin-right: 40px; 
  
 }
@@ -43,8 +52,8 @@ h1, h2, .form-group, li, .name{
 .jumbotron{  
   background-color: white;
   border: solid 4px black;
-  margin: 10rem 6rem 3rem 6rem;
-  padding: 5rem;
+  margin: 10rem 2rem 3rem 2rem;
+  padding: 4rem;
   justify-content: center;
 }
 .jumboStay{  
@@ -53,9 +62,9 @@ h1, h2, .form-group, li, .name{
   line-height: 75px;
   margin-bottom: 5rem;
 }
-/* .jt1{
-  margin: 10rem 10rem;
-} */
+.country-list {
+  line-height: 2rem;
+}
 .nav1{
   background: rgb(216, 216, 216);
   border-bottom: black 4px solid;
@@ -108,8 +117,3 @@ ul li:last-child{
   border-top: 5px solid #4aaaa5;
   color: black;
 }
-.card{
-  padding: 0rem;
-  margin: .5rem;
-  border: solid 3px #4aaaa5;
-} 
