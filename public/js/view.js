@@ -1,28 +1,88 @@
 $(document).ready(function () {
-
   var $services = $(".custom-select");
   var $name = $("#name");
   var $email = $("#email");
-  var $phone = $("#phone");
   var $location = $("#location");
+
+  var $servicesE = $(".edit-custom-select");
+  var $nameE = $("#edit-name");
+  var $emailE = $("#edit-email");
+  var $locationE = $("#edit-location");
+ 
+
+
+  var $postscontainer = $(".newposts");
   const $country = $(".country")
   const $deaths = $(".deaths")
   const $confirmed = $(".confirmed")
   const $recovered = $(".recovered")
 
-  var $postscontainer = $(".newposts");
-  $(document).on("click", "#submit-form", insertPost);
-
   var posts = [];
+  var currentModal= "";
 
-  getPosts();
-  getData();
+  $(document).on("click", "#submit-form", insertPost);
+  $(document).on("click", ".saveEdit", editPost);
+
+  initializePage();
+
+  function initializePage() {
+
+    getPosts();
+    getData();
+  }
 
   function getPosts() {
     $.get("/api/post", function (data) {
       posts = data;
-      initializeRows();
+      initializeRows(data);
+    }).then(function () {
+
     });
+  }
+
+  function initializeRows(posts) {
+    $postscontainer.empty();
+    var rowsToAdd = [];
+    for (var i = 0; i < posts.length; i++) {
+      rowsToAdd.push(createNewRow(posts[i]));
+      rowsToAdd.push(createNewDltBtn(posts[i].id));
+      rowsToAdd.push(createNewEditBtn(posts[i].id));
+    }
+    $postscontainer.prepend(rowsToAdd);
+  }
+
+  function renderMenu(data) {
+    let code = "";
+    if (data.length !== 0) {
+      var div = $("<div>").addClass("country-list").on("click", getCountryData);
+      $.get("/api/getflags").then(function (response) {
+        for (let i = 0; i < response.length; i++) {
+          for (let j = 0; j < data.countries_stat.length; j++) {
+            if (data.countries_stat[j].country_name === response[i].name) {
+              code = response[i].alpha2Code;
+
+              var img_url = `https://www.countryflags.io/${code}/shiny/64.png`;
+              var span = $("<span>").addClass("container-list ").on("click", getCountryData);
+
+              var a = $("<button>").addClass("country-btn")
+                .attr("value", data.countries_stat[j].country_name)
+                .text(data.countries_stat[j].country_name + "    ");
+
+              span.append(a);
+
+              var img = $("<img>").attr("src", img_url)
+              a.append(img);
+
+              div.append(span);
+
+              $(".jumbotron1").append(div);
+
+            }
+          }
+        }
+        return code;
+      });
+    }
   }
 
   function getData() {
@@ -32,51 +92,6 @@ $(document).ready(function () {
       $confirmed.text(data.countries_stat[0].cases);
       $recovered.text(data.countries_stat[0].total_recovered);
       renderMenu(data);
-
-    });
-  }
-
-
-  function renderMenu(data) {
-    if (data.length !== 0) {
-
-      var div = $("<div>").addClass("country-list").on("click", getCountryData);
-
-
-      for (var i = 0; i < data.countries_stat.length; i++) {
-        console.log(getFlagsCode(data.countries_stat[i].country_name));
-        var span = $("<span>").addClass("container-list ").on("click", getCountryData);
-
-        var code = getFlagsCode(data.countries_stat[i].country_name);
-        console.log(code);
-        var img_url = `https://www.countryflags.io/${code}/shiny/64.png`;
-        var a = $("<button>").addClass("country-btn")
-          .attr("value", data.countries_stat[i].country_name)
-          .text(data.countries_stat[i].country_name + "    ");
-          
-        span.append(a);
-
-        var img = $("<img>").attr("src", img_url)
-        span.append(img);
-
-        div.append(span);
-
-        $(".jumbotron1").append(div);
-      };
-    }
-  }
-
-  function getFlagsCode(country) {
-    
-    let code = "";
-    $.get("/api/getflags", function (data) {
-      for (let i = 0; i < data.length; i++) {
-        if (country == data[i].name) {
-          code = data[i].alpha2Code;
-          console.log(code);
-          return code;
-        }
-      }
     });
   }
 
@@ -93,58 +108,47 @@ $(document).ready(function () {
     });
   }
 
-  function initializeRows() {
-    $postscontainer.empty();
-    var rowsToAdd = [];
-    for (var i = 0; i < posts.length; i++) {
-      rowsToAdd.push(createNewRow(posts[i]));
-      rowsToAdd.push(createNewDltBtn(posts[i].id));
-      // rowsToAdd.push(createNewEditBtn(posts[i].id));
-    }
-    $postscontainer.prepend(rowsToAdd);
-  }
-
   function createNewRow(post) {
     var $newInputRow = $(
       [
-        "<hr><p>Name: ",
+        "<hr><p>Name: <span id='userName",post.id,"'>",
         post.name,
-        "<br>Email: ",
+        "</span><br>Email: <span id='userEmail",post.id,"'>",
         post.email,
-        "<br>Services: ",
+        "</span><br>Services: <span id='userServices",post.id,"'>",
         post.services,
-        "<br>Location: ",
+        "</span><br>Location: <span id='userLocation",post.id,"'>",
         post.location,
-        "</p>",
+        "</span></p>",
       ].join("")
     );
- 
+
     $newInputRow.data("post", post);
+    $newInputRow.data("id", post.id);
+
     return $newInputRow;
   }
 
   function createNewDltBtn(id) {
-
     var $dlt_button = $("<button>").addClass("delete btn-danger btn1")
-    .text("X")
-    .attr("value", id)     
-    .on("click", deletePost);
+      .text("X")
+      .attr("value", id)
+      .on("click", deletePost);
 
     return $dlt_button;
   }
 
   function createNewEditBtn(id) {
-
-    var $edit_button = $("<button>").addClass("edit btn-info btn1")
-    .text("Edit")
-    .attr("value", id) 
-    .data("post", post)    
-    .on("click", editPost);
+    var $edit_button = $("<button>").addClass("edit btn-info btn-primary btn1")
+      .text("Edit")
+      .attr("value", id)
+      .attr("data-toggle", "modal")
+      .attr("data-target", "#exampleModal3")
+      .on("click", renderModal);
 
     return $edit_button;
   }
 
- 
   function insertPost(event) {
     event.preventDefault();
     var post = {
@@ -163,27 +167,49 @@ $(document).ready(function () {
 
   function deletePost(event) {
     $.ajax({
-      method: "DELETE",
-      url: "/api/post/" + event.target.value
-    })
-      .then(function() {
+        method: "DELETE",
+        url: "/api/post/" + event.target.value
+      })
+      .then(function () {
         location.reload();
       });
   }
 
-  function editPost() {
-    var currentPost = $(this).data("post");
-    $name.val(currentPost.text);
+  function renderModal(event) {
+    currentModal = $(this).val();
+    currentName = "#userName" + currentModal;
+    currentEmail = "#userEmail" + currentModal;
+    currentLocation= "#userLocation" + currentModal;
+    
+    let nameText = $(this).parent().find(currentName).text();
+    let  emailText = $(this).parent().find(currentEmail).text();
+    let locationText = $(this).parent().find(currentLocation).text();
+
+    $nameE.val(nameText);
+    $emailE.val(emailText);
+    $locationE.val(locationText);
+
+    $(".saveEdit").attr("value", currentModal)
   }
 
+  function editPost(event) {
+    event.preventDefault();
+    var post = {
+      name: $nameE.val().trim(),
+      location: $locationE.val(),
+      services: $servicesE.val(),
+      email: $emailE.val(),
+      id: event.target.value
+    };
+    finishEdit(post)
+  }
 
-  // function editPost(event) {
-  //   $.ajax({
-  //     method: "PUT",
-  //     url: "/api/post/" + event.target.value
-  //   })
-  //     .then(function() {
-  //       location.reload();
-  //     });
-  // }
+  function finishEdit(data){
+    $.ajax({
+        method: "PUT",
+        url: "/api/post/",
+        data: data
+      })
+      .then(location.reload());
+  }
 });

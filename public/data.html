@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Latest Data</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- google fonts api -->
     <link href="https://fonts.googleapis.com/css?family=Aclonica|Boogaloo|Caudex|Chewy|Lateef|Merienda+One&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- navbar -->
     <div class="container">
         <div class="row nav1 fixed-top">
             <div class="col-md-5">
@@ -36,58 +39,60 @@
             </div>
         </div>
     </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="jumbotron">
-                    <h1 class="display-4">Latest Data</h1>
-                    <img src="https://stisidore.church/wp-content/uploads/2016/10/BytheNumbers.jpg" id="selfie" alt="">
 
-                    <hr class="my-4">
+    <div class="row">
+        <!-- jumbotron that displays latest data-->
+        <div class="col-md-4">
+            <div class="jumbotron">
+                <h1 class="display-4">Latest Data</h1>
+                <img src="https://stisidore.church/wp-content/uploads/2016/10/BytheNumbers.jpg" id="selfie"
+                    alt="numbers">
 
-                    <h1 class="display-4 ">Country:</h1>
-                    <h1 class="display-4 country"></h1>
+                <hr class="my-4">
 
-                    <hr>
+                <h1 class="display-4 ">Country:</h1>
+                <h1 class="display-4 country"></h1>
 
-                    <h1 class="display-4 ">Confirmed Cases: </h1>
-                    <h2 class="display-4 confirmed"></h2>
+                <hr>
 
-                    <hr>
+                <h1 class="display-4 ">Confirmed Cases: </h1>
+                <h2 class="display-4 confirmed"></h2>
 
-                    <h1 class="display-4 ">Deaths: </h1>
-                    <h2 class="display-4 deaths"></h2>
+                <hr>
 
-                    <hr>
+                <h1 class="display-4 ">Deaths: </h1>
+                <h2 class="display-4 deaths"></h2>
 
-                    <h1 class="display-4 ">Recoverd: </h1>
-                    <h2 class="display-4 recovered"></h2>
+                <hr>
 
-                    <hr>
-                </div>
-            </div>
-            <div class="col-md-6">
+                <h1 class="display-4 ">Recoverd: </h1>
+                <h2 class="display-4 recovered"></h2>
 
-                <div class="jumbotron jumbotron1">
-                    <h1 class="display-4">Select A Country For Latest Data: </h1>
-                </div>
-
+                <hr>
             </div>
         </div>
+
+        <!-- jumbotron that displays countries -->
+        <div class="col-md-8">
+            <div class="jumbotron jumbotron1">
+                <h1 class="display-4">Select A Country For Latest Data: </h1>
+            </div>
+        </div>
+    </div>
+
     <!-- footer-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="footer ">
-                    <p>Said Aguilar, Greg Schuman, Jason Riley Copyright &#x24B8</p>
-                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="footer ">
+                <p>Said Aguilar, Greg Schuman, Jason Riley Copyright &#x24B8</p>
             </div>
         </div>
+    </div>
 </body>
+<!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
 <script src="js/view.js"></script>
 

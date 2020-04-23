@@ -33,8 +33,12 @@ module.exports = function(app) {
   });
 
   app.put("/api/post", function(req, res) {
-    db.Post.update(
-      req.body,
+    db.Post.update({
+      name: req.body.name,
+      email:req.body.email,
+      location: req.body.location,
+      services: req.body.services
+    },
       {
         where: {
           id: req.body.id
