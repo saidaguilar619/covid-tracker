@@ -23,9 +23,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     
-    // phone: {
-    //   type: DataTypes.INTEGER
-    // },
+    phone: {
+      type: DataTypes.INTEGER
+    },
     id: {
       autoIncrement: true,
       primaryKey: true,
